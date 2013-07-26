@@ -1,0 +1,245 @@
+//
+// Base Styles
+//
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700)
+
+@import "compass"
+@import "compass/reset"
+@import "h5bp"
+
+@import "font-awesome"
+
+
+// HTML5 Boilerplate styling for Chrome Frame
+@include h5bp-chromeframe
+
+
+// Susy Grid Systems
+// $show-grid-backgrounds: true
+@import "susy"
+@include border-box-sizing
+
+
+// Grid Settings
+$total-columns      : 6
+$column-width       : 60px
+$gutter-width       : 20px
+$grid-padding       : $gutter-width / 2
+
+$break-tablet:   8
+$break-desktop: 12
+
+// Colors
+
+$blue               : #4DA5DE
+$red                : #EA5E35
+$gray               : #4D5661
+    
+// * 
+//   -moz-box-sizing: border-box
+//   -webkit-box-sizing: border-box
+//   box-sizing: border-box
+
+// Type
+h1, .h1
+  color: lighten($gray, 5)
+  font-size: 1.75em
+  line-height: 1
+  text-shadow: 0px 1px 2px rgba(0,0,0,.25)
+
+  span
+    color: $red
+    display: block
+    font-size: .45em
+    font-weight: 700
+    line-height: 1.15
+    margin: .75em 0 1.5em
+    text-shadow: none
+    text-transform: uppercase
+
+h2, .h2
+  color: lighten($blue, 25)
+  font-size: 1em
+  font-weight: 400
+  line-height: 1.75
+  text-transform: uppercase
+  margin-bottom: 1em
+
+h4, .h4
+  color: $gray
+  text-transform: uppercase
+
+p
+  font-size: .85em
+  margin-bottom: 1.33em
+
+  &.title
+    color: $gray
+    font-size: 2.25em
+    margin-bottom: 0
+
+    a
+      color: $gray
+
+      i 
+        font-size: 50%
+        display: inline-block
+        margin: 0
+        color: $red
+        position: relative
+        bottom: 5px
+      
+      &:hover
+        color: lighten($red, 15)
+
+  &.lead
+    font-size: 1.125em
+    color: lighten($gray, 40)
+
+a
+  text-decoration: none
+  color: lighten($blue, 15)
+  &:hover
+    color: $blue
+
+
+// Components
+
+body
+  @include background-image(linear-gradient(lighten(#4DA5DE, 35), #fff 400px))
+  background-attachment: fixed
+  color: lighten($gray, 25)
+  font-family: "Montserrat", Helvetica Neue, Helvetica, Arial, sans-serif
+  font-weight: 400
+  font-size: 100%
+  line-height: 1.33
+  padding-top: 2em
+
+.container
+  @include container($total-columns)
+
+  img
+    max-width: 100%
+    height: auto
+
+header, .work
+  @include clearfix
+
+header
+  padding: 0 $gutter-width
+  margin-bottom: $gutter-width
+
+.social
+  @include clearfix
+
+  a
+    color: $blue
+    display: block
+    float: left
+    font-size: 1.5em
+    margin-right: 16px
+    margin-bottom: .5em
+
+.work
+  padding: 0 $gutter-width $gutter-width
+
+article
+  margin-bottom: $gutter-width*2
+
+  p 
+    color: lighten($gray, 35)
+
+  .links
+    margin-bottom: .5em
+    a
+      margin-left: 10px
+      color: $blue
+      &:hover
+        color: lighten($blue, 15)
+
+  ul
+    margin-left: 10px
+    > li
+      font-size: .85em
+      color: lighten($gray, 15)
+      margin-bottom: 5px
+      ul
+        margin-bottom: 10px
+      li
+        color: lighten($gray, 35)
+        font-size: 1em
+        margin-bottom: 0px
+
+// Resume
+
+.resume
+  h2
+    margin-bottom: 2.3em
+    a
+      color: lighten($blue, 15)
+      margin-left: 20px
+
+      &:hover
+        color: $blue
+
+  article
+    p
+      color: lighten($gray, 15)
+  
+  .company
+    a
+      color: lighten($blue, 15)
+
+      &:hover
+        color: $blue
+
+    span
+      display: block
+
+      &.title
+        color: lighten($red, 15)
+
+      &.date
+        color: lighten($gray, 35)
+
+
+// Breakpoints
+
+$layouts: $break-tablet, $break-desktop
+
+@each $layout in $layouts
+
+  @include at-breakpoint($layout)
+
+    .container
+      @include set-container-width
+
+
+// Tablet Specific
+@include at-breakpoint($break-tablet)
+
+  body
+    padding-top: 0
+
+  header
+    @include span-columns($break-tablet)
+    padding: 5em 0 0 0
+
+  .work
+    @include span-columns($break-tablet)
+    padding: 1.6em 0 3em 0
+
+  .references
+    p
+      @include span-columns(3, $break-desktop) 
+
+
+// Desktop Specific
+@include at-breakpoint($break-desktop)
+
+  header
+    @include span-columns(4, $break-desktop)
+
+  .work
+    @include span-columns(8 omega, $break-desktop)

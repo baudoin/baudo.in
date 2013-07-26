@@ -1,0 +1,20 @@
+# humanstxt.org/
+
+# AUTHOR
+
+              .      ,-.  .             .        .
+	,-. ,-. ,-| . . /,-.\ |-. ,-. . . ,-| ,-.    . ,-.
+	,-| | | | | | | |,-|| | | ,-| | | | | | |    | | |
+	`-^ ' ' `-^ `-| \`-^/ ^-' `-^ `-^ `-^ `-' :; ' ' '
+	             /|  `-'
+	            `-'
+	
+	Twitter: @baudoin
+	Location: Portland, Oregon, USA
+	 
+
+# COLOPHON
+
+    HTML5, CSS3
+    Middleman (http://middlemanapp.com/)
+    SASS, Compass, Modernizr
